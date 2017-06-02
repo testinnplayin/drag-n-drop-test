@@ -5,25 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="main.css" type="text/css">
   <script>
     function handleDragEvent(e) {
-      console.log('drag triggered', e.target.id);
+
       e.dataTransfer.setData("text", e.target.id);
+    }
+
+    function handleDragEnter(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      //must only be li elements
+      e.target.style.background = "#eee";
+
+    }
+
+    function handleDragLeave(e) {
+      e.preventDefault();
+      // e.stopPropagation();
+      e.target.style.background = "#fff";
     }
 
     function handleDropEvent(e) {
       e.preventDefault();
+      e.dataTransfer.effectAllowed = "move";
       var id = e.dataTransfer.getData("text");
-      console.log('drop triggered ',id);
-      console.log(e.target.querySelector('ul'));
-      let ul = e.target.querySelector('ul');
-      // document.getElementById(e.target.children).appendChild(document.getElementById(id), e.target);
+
+      console.log(e.target);
+      const ul = e.target.querySelector('ul');
       ul.appendChild(document.getElementById(id));
+      e.target.style.background = "#fff";
     }
 
     function allowDrop(e) {
       e.preventDefault();
+      console.log(e.target);
+
+      e.dataTransfer.dropEffect = "move";
     }
+
   </script>
 </head>
 <body>
@@ -33,67 +53,123 @@
           <li
               ondragover="allowDrop(event)"
               ondrop="handleDropEvent(event)"
+              ondragenter="handleDragEnter(event)"
+              ondragleave="handleDragLeave(event)"
               draggable="true"
               ondragstart="handleDragEvent(event)"
               id="0">Drag Me
-            <ul
-              ondragover="allowDrop(event)"
-              ondrop="handleDropEvent(event)"
-                id="list-1-1">
+            <ul id="list-1-1">
               <li
                   ondragstart="handleDragEvent(event)"
                   draggable="true"
-
-                  id="00">
-                  Drag Me 1
-                  <ul
-
-                  id="list-1-1-1"
                   ondragover="allowDrop(event)"
                   ondrop="handleDropEvent(event)"
-                  ></ul>
+                  ondragenter="handleDragEnter(event)"
+                  ondragleave="handleDragLeave(event)"
+                  id="00">
+                  Drag Me 1
+                  <ul id="list-1-1-1"></ul>
                 </li>
               <li
                   ondragstart="handleDragEvent(event)"
                   draggable="true"
-                  id="01">Drag Me 2</li>
+                  ondragover="allowDrop(event)"
+                  ondrop="handleDropEvent(event)"
+                  ondragenter="handleDragEnter(event)"
+                  ondragleave="handleDragLeave(event)"
+                  id="01">
+                  Drag Me 2
+                  <ul id="list-1-1-2"></ul>
+              </li>
               <li
                   ondragstart="handleDragEvent(event)"
                   draggable="true"
-                  id="02">Drag Me 3</li>
+                  ondragover="allowDrop(event)"
+                  ondrop="handleDropEvent(event)"
+                  ondragenter="handleDragEnter(event)"
+                  ondragleave="handleDragLeave(event)"
+                  id="02">
+                  Drag Me 3
+                  <ul id="list-1-1-3"></ul>
+              </li>
             </ul>
           </li>
-          <li id="1">Don't Drag Me</li>
+          <li
+          id="1"
+          ondragover="allowDrop(event)"
+          ondragenter="handleDragEnter(event)"
+          ondragleave="handleDragLeave(event)"
+          ondrop="handleDropEvent(event)">Don't Drag Me
+            <ul id="list-2"></ul>
+          </li>
           <li
               ondragstart="handleDragEvent(event)"
               draggable="true"
-              id="2"> Drag Me
-            <ul>
+              ondragover="allowDrop(event)"
+              ondrop="handleDropEvent(event)"
+              ondragenter="handleDragEnter(event)"
+              ondragleave="handleDragLeave(event)"
+              id="3"> Drag Me
+            <ul id="list-3-1">
               <li
                   ondragstart="handleDragEvent(event)"
                   draggable="true"
-                  id="20">Drag Me A</li>
+                  ondragover="allowDrop(event)"
+                  ondrop="handleDropEvent(event)"
+                  ondragenter="handleDragEnter(event)"
+                  ondragleave="handleDragLeave(event)"
+                  id="20">
+                  Drag Me A
+                  <ul id="list-3-1-1"></ul>
+                </li>
               <li
                   ondragstart="handleDragEvent(event)"
                   draggable="true"
+                  ondragover="allowDrop(event)"
+                  ondrop="handleDropEvent(event)"
+                  ondragenter="handleDragEnter(event)"
+                  ondragleave="handleDragLeave(event)"
                   id="21">Drag Me B</li>
+                  <ul id="list-3-1-2"></ul>
               <li
                   ondragstart="handleDragEvent(event)"
                   draggable="true"
+                  ondragover="allowDrop(event)"
+                  ondrop="handleDropEvent(event)"
+                  ondragenter="handleDragEnter(event)"
+                  ondragleave="handleDragLeave(event)"
                   id="22">Drag Me C
-                <ul>
+                <ul id="list-3-1-3">
                   <li
                       ondragstart="handleDragEvent(event)"
                       draggable="true"
-                      id="220">Drag Me i</li>
+                      ondragover="allowDrop(event)"
+                      ondrop="handleDropEvent(event)"
+                      ondragenter="handleDragEnter(event)"
+                      ondragleave="handleDragLeave(event)"
+                      id="220">Drag Me i
+                      <ul id="list-3-1-3-1"></ul>
+                    </li>
                   <li
                       ondragstart="handleDragEvent(event)"
                       draggable="true"
-                      id="221">Drag Me ii</li>
+                      ondragover="allowDrop(event)"
+                      ondrop="handleDropEvent(event)"
+                      ondragenter="handleDragEnter(event)"
+                      ondragleave="handleDragLeave(event)"
+                      id="221">Drag Me ii
+                      <ul id="list-3-1-3-2"></ul>
+                    </li>
                   <li
                       ondragstart="handleDragEvent(event)"
                       draggable="true"
-                      id="222">Drag Me iii</li>
+                      ondragover="allowDrop(event)"
+                      ondrop="handleDropEvent(event)"
+                      ondragenter="handleDragEnter(event)"
+                      ondragleave="handleDragLeave(event)"
+                      id="222">Drag Me iii
+                      <ul id="list-3-1-3-3"></ul>
+                    </li>
                 </ul>
               </li>
             </ul>
