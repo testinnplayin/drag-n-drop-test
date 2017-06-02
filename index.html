@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+      <section>
+        <ul id="list-1">
+          List 1
+          <li
+              ondragover="allowDrop(e)"
+              ondrop="handleDropEvent(e)"
+              draggable="true"
+              ondragstart="handleDragEvent(e)"
+              id="0">Drag Me
+            <ul
+                ondragover="allowDrop(e)"
+                ondrop="handleDropEvent(e)">
+              <li
+                  ondragstart="handleDragEvent(e)"
+                  draggable="true"
+                  id="00">Drag Me 1</li>
+              <li
+                  ondragstart="handleDragEvent(e)"
+                  draggable="true"
+                  id="01">Drag Me 2</li>
+              <li
+                  ondragstart="handleDragEvent(e)"
+                  draggable="true"
+                  id="02">Drag Me 3</li>
+            </ul>
+          </li>
+          <li id="1">Don't Drag Me</li>
+          <li
+              ondragstart="handleDragEvent(e)"
+              draggable="true"
+              id="2">
+            <ul>
+              <li
+                  ondragstart="handleDragEvent(e)"
+                  draggable="true"
+                  id="20">Drag Me A</li>
+              <li
+                  ondragstart="handleDragEvent(e)"
+                  draggable="true"
+                  id="21">Drag Me B</li>
+              <li
+                  ondragstart="handleDragEvent(e)"
+                  draggable="true"
+                  id="22">Drag Me C
+                <ul>
+                  <li
+                      ondragstart="handleDragEvent(e)"
+                      draggable="true"
+                      id="220">Drag Me i</li>
+                  <li
+                      ondragstart="handleDragEvent(e)"
+                      draggable="true"
+                      id="221">Drag Me ii</li>
+                  <li
+                      ondragstart="handleDragEvent(e)"
+                      draggable="true"
+                      id="222">Drag Me iii</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+</body>
+</html>
